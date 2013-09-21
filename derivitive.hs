@@ -68,9 +68,9 @@ simplify = converge (==) . iterate simplify'
 
 -- 9x^2 + 8x + 7
 expression :: Expression
--- expression = (Sum (Sum (Power (Product (Number 9) (Variable "x")) (Number 2)) (Product (Number 8) (Variable "x"))) (Number 7))
-expression = (Sum (Sum (Number 8) (Variable "x")) (Number 7))
+expression = (Sum (Sum (Power (Product (Number 9) (Variable "x")) (Number 2)) (Product (Number 8) (Variable "x"))) (Number 7))
+-- expression = (Sum (Sum (Number 8) (Variable "x")) (Number 7))
 
 main :: IO()
-main = print $ simplify $ expression
+main = print $ simplify $ derive expression
 
