@@ -9,10 +9,11 @@ data Expression = Number Int |
 instance Show Expression where
   show (Number i) = show i
   show (Variable s) = s
-  show (Sum l r) = "(" ++ show l ++ " + " ++ show r ++ ")"
-  show (Subtract l r) = "(" ++ show l ++ " - " ++ show r ++ ")"
-  show (Power b e) = "(" ++ show b ++ " ^ " ++ show e ++ ")"
-  show (Product l r) = "(" ++ show l ++ " * " ++ show r ++ ")"
+  show (Sum l r) = show l ++ " + " ++ show r
+  show (Subtract l r) = show l ++ " - " ++ show r
+  show (Power b e) = show b ++ "^" ++ show e
+  show (Product (Number l) (Variable r)) = show (Number l) ++ show (Variable r)
+  show (Product l r) = show l ++ " * " ++ show r
 
 derive :: Expression -> Expression
 derive (Number _) = Number 0
